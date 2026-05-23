@@ -226,7 +226,7 @@ body {
   width: 65px;
   position: absolute;
   margin-left: 498px;
-  padding: 31.65px 5px 31.65px 5px;
+  padding: 31.65px 0px;
   margin-top: -89.75px;
 }
 
@@ -962,3 +962,11 @@ body {
   margin-top: -25px;
 }
 /*chip end*/
+.winning-highlight {
+  background-color: gold !important;
+  color: black !important;
+  transition: all 0.3s ease;
+  z-index: 1 !important; /* Lower z-index */
+  position: relative;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+}

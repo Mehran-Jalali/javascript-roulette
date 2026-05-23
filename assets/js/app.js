@@ -649,7 +649,9 @@ function setBet(e, n, t, o) {
 function spin() {
   var winningSpin = Math.floor(Math.random() * 37);
   spinWheel(winningSpin);
+
   setTimeout(function () {
+    highlightWinningNumber(winningSpin);
     if (numbersBet.includes(winningSpin)) {
       let winValue = 0;
       let betTotal = 0;
@@ -804,6 +806,52 @@ function spinWheel(winningSpin) {
   }, 10000);
 }
 
+// Highlight the winning number on the betting board
+function highlightWinningNumber(winningNum) {
+  // Remove any existing highlight class from all numbers
+  const allNumberBlocks = document.querySelectorAll(".number_block, .number_0");
+  allNumberBlocks.forEach((block) => {
+    block.classList.remove("winning-highlight");
+    block.style.backgroundColor = ""; // Reset background
+  });
+
+  // Find and highlight the winning number
+  const numberBlocks = document.querySelectorAll(".number_block");
+  let found = false;
+
+  for (let i = 0; i < numberBlocks.length; i++) {
+    const nbn = numberBlocks[i].querySelector(".nbn");
+    if (nbn && parseInt(nbn.innerText) === winningNum) {
+      // Highlight this block
+      numberBlocks[i].classList.add("winning-highlight");
+      numberBlocks[i].style.backgroundColor = "gold";
+      numberBlocks[i].style.color = "black";
+      numberBlocks[i].style.transform = "scale(1.05)";
+      found = true;
+      break;
+    }
+  }
+
+  // Handle zero separately
+  if (winningNum === 0) {
+    const zeroBlock = document.querySelector(".number_0");
+    if (zeroBlock) {
+      zeroBlock.classList.add("winning-highlight");
+      zeroBlock.style.backgroundColor = "gold";
+      zeroBlock.style.color = "black";
+    }
+  }
+
+  // Remove highlight after 2 seconds
+  setTimeout(() => {
+    allNumberBlocks.forEach((block) => {
+      block.classList.remove("winning-highlight");
+      block.style.backgroundColor = "";
+      block.style.color = "";
+      block.style.transform = "";
+    });
+  }, 2000);
+}
 function removeChips() {
   var chips = document.getElementsByClassName("chip");
   if (chips.length > 0) {
