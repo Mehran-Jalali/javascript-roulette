@@ -175,15 +175,16 @@ body {
   padding: 32px 0px;
 }
 
+/* change the rotate(-90deg) to (0deg) */
 .nbn {
   font-size: 20px;
   font-weight: bold;
   letter-spacing: 2px;
-  transform: rotate(-90deg);
-  -webkit-transform: rotate(-90deg);
-  -moz-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  -o-transform: rotate(-90deg);
+  transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 
@@ -225,7 +226,7 @@ body {
   width: 65px;
   position: absolute;
   margin-left: 498px;
-  padding: 31.65px 0px;
+  padding: 31.65px 5px 31.65px 5px;
   margin-top: -89.75px;
 }
 
