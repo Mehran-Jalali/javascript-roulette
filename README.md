@@ -10,7 +10,7 @@
 
 ## 🎰 Game Screenshot
 
-![Javascript Roulette - Kurdish Version](image.png)
+![Javascript Roulette - Kurdish Version](image.jpg)
 
 ---
 
